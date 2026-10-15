@@ -1,0 +1,16 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from './tokens.json';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+Inter. Each style is a set of tokens – weight, size, line height, letter spacing – and a `.text-*` class
+
+{Object.entries(tokens.typography).map(([k, s]) => (
+  <div key={k} style={{ display: 'flex', alignItems: 'baseline', gap: 24, padding: '16px 0', borderBottom: '1px solid var(--border-subtle)' }}>
+    <code style={{ minWidth: 120 }}>{k}</code>
+    <span style={{ color: 'var(--text-secondary)', minWidth: 140 }}>{s.weight} · {s.size} / {s.lineHeight}</span>
+    <span className={'text-' + k.replace('/', '-')}>Send money in a few taps</span>
+  </div>
+))}

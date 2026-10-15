@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Design system sample
+
+Components I built in the design system of a fintech app for international money transfers – iOS, Android and web.
+**Anonymised under NDA:** the brand colour, names and copy are replaced; the structure, properties and tokens follow production
+
+Designed in Figma, then rebuilt here in React and TypeScript with Claude Code – the same names and states in both, so design and code speak one language
+
+## How it’s built
+
+- **Tokens in two layers.** Primitives hold raw values; components use only semantic tokens (`button/primary/bg`, `text/secondary`), so a brand or a theme changes in one place. `tokens.json` is the source of truth, `npm run tokens` generates the CSS variables
+- **Components** – Button, Bottom sheet, Full screen message, List item. Every prop maps to a component property in Figma
+- **Accessibility** is checked on every story with axe (the Accessibility tab): semantic buttons and dialogs, focus rings, labels for icon-only buttons, reduced motion
+- **Readable by AI agents** – the Storybook MCP addon exposes components and their docs to coding agents
+
+## Links
+
+- [Figma sample](https://www.figma.com/design/d8WTz9z1dh04l7Nm8dcRvG/Anastasiia-Sukhanek-%E2%80%94-Design-System-Sample)
+- [Portfolio](https://anastasiia-suhanek.github.io)
+- Anastasiia Sukhanek, product designer

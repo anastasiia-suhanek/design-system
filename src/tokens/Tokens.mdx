@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from './tokens.json';
+
+<Meta title="Foundations/Tokens" />
+
+export const Swatch = ({ name, value, cssVar }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0', borderBottom: '1px solid var(--border-subtle)' }}>
+    <div style={{ width: 40, height: 40, borderRadius: 8, background: `var(${cssVar})`, border: '1px solid var(--border-subtle)', flex: 'none' }} />
+    <code style={{ minWidth: 240 }}>{name}</code>
+    <span style={{ color: 'var(--text-secondary)' }}>{value}</span>
+  </div>
+);
+
+# Tokens
+
+Two layers. **Components only use semantic tokens**; semantic tokens point at primitives
+
+## Semantic
+
+{Object.entries(tokens.semantic).map(([k, v]) => <Swatch key={k} name={k} value={'→ ' + v.replace(/[{}]/g, '')} cssVar={'--' + k.replace(/\//g, '-')} />)}
+
+## Colour primitives
+
+{Object.entries(tokens.primitives.color).map(([k, v]) => <Swatch key={k} name={'color/' + k} value={v} cssVar={'--color-' + k} />)}
+
+## Spacing and radius
+
+Every padding, gap and radius sits on a 4 px grid
+
+<div style={{ display: 'flex', gap: 16, alignItems: 'flex-end', flexWrap: 'wrap' }}>
+  {Object.entries(tokens.primitives.spacing).map(([k, v]) => (
+    <div key={k} style={{ textAlign: 'center' }}>
+      <div style={{ width: v, height: v, background: 'var(--button-primary-bg)', borderRadius: 2, margin: '0 auto 8px' }} />
+      <code>{k}</code>
+    </div>
+  ))}
+</div>
