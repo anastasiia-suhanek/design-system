@@ -13,6 +13,8 @@ const config: StorybookConfig = {
     "@storybook/addon-mcp"
   ],
   "framework": "@storybook/react-vite",
+  // Same favicon as the portfolio
+  "staticDirs": ["../public"],
   // A showcase, not a workbench: keep the Language switch, hide backgrounds, grid, measure and outline
   "features": { "backgrounds": false, "measure": false, "outline": false }
 };
