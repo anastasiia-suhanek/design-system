@@ -8,10 +8,16 @@ function initial(): Locale {
   try {
     const g = new URL(window.top!.location.href).searchParams.get('globals') || '';
     if (/locale:ru/.test(g)) return 'ru';
+    if (/locale:en/.test(g)) return 'en';
   } catch { /* cross-origin parent: fall through */ }
   const store = (window as unknown as { __STORYBOOK_PREVIEW__?: { storyStoreValue?: { userGlobals?: { get?: () => { locale?: string } } } } })
     .__STORYBOOK_PREVIEW__?.storyStoreValue?.userGlobals?.get?.();
-  return store?.locale === 'ru' ? 'ru' : 'en';
+  if (store?.locale === 'ru' || store?.locale === 'en') return store.locale;
+  try {
+    const saved = localStorage.getItem('lang');
+    if (saved === 'en' || saved === 'ru') return saved;
+  } catch { /* storage blocked */ }
+  return (navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : 'en';
 }
 
 export function useLocale(): Locale {

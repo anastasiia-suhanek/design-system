@@ -3,6 +3,16 @@ import '../src/index';
 import '@fontsource/inter/500.css'; // docs headings use 500, like the portfolio
 import theme from './theme';
 
+// Same rule as the portfolio (js/lang.js) – the site and Storybook share an origin, so they share the choice:
+// the language picked on the portfolio, otherwise the device language
+function detectLocale(): 'en' | 'ru' {
+  try {
+    const saved = localStorage.getItem('lang');
+    if (saved === 'en' || saved === 'ru') return saved;
+  } catch { /* storage blocked */ }
+  return (navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : 'en';
+}
+
 const preview: Preview = {
   globalTypes: {
     locale: {
@@ -18,11 +28,14 @@ const preview: Preview = {
       },
     },
   },
-  initialGlobals: { backgrounds: { value: 'canvas' }, locale: 'en' },
+  initialGlobals: { backgrounds: { value: 'canvas' }, locale: detectLocale() },
   decorators: [
     (Story, { globals }) => {
       // Screen readers pick the voice from <html lang>
-      document.documentElement.lang = globals.locale === 'ru' ? 'ru' : 'en';
+      const locale = globals.locale === 'ru' ? 'ru' : 'en';
+      document.documentElement.lang = locale;
+      // A switch here carries back to the portfolio
+      try { localStorage.setItem('lang', locale); } catch { /* storage blocked */ }
       return <Story />;
     },
   ],
