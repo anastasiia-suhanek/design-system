@@ -28,7 +28,7 @@ const preview: Preview = {
       },
     },
   },
-  initialGlobals: { backgrounds: { value: 'canvas' }, locale: detectLocale() },
+  initialGlobals: { locale: detectLocale() },
   decorators: [
     (Story, { globals }) => {
       // Screen readers pick the voice from <html lang>
@@ -42,7 +42,6 @@ const preview: Preview = {
   parameters: {
     layout: 'centered',
     docs: { theme },
-    backgrounds: { options: { canvas: { name: 'Canvas', value: '#F5F5F3' }, white: { name: 'White', value: '#ffffff' } } },
     controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },
     a11y: { test: 'error' },
     options: { storySort: { order: ['Introduction', 'Foundations', ['Tokens', 'Typography'], 'Components'] } },
