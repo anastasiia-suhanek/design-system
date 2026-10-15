@@ -18,7 +18,17 @@ Designed in Figma, then rebuilt here in React and TypeScript with Claude Code �
 
 ## Links
 
-- [Source on GitHub](https://github.com/anastasiia-suhanek/design-system)
-- [Figma sample](https://www.figma.com/design/d8WTz9z1dh04l7Nm8dcRvG/Anastasiia-Sukhanek-%E2%80%94-Design-System-Sample)
-- [Portfolio](https://anastasiia-suhanek.github.io)
-- Anastasiia Sukhanek, product designer
+export const LinkCard = ({ href, title, note }) => (
+  <a href={href} style={{ display: 'flex', flexDirection: 'column', gap: 4, padding: 16, border: '1px solid #E1E1DE', color: '#0B0B0B', textDecoration: 'none', flex: '1 1 200px' }}>
+    <span style={{ fontWeight: 600, fontSize: 16 }}>{title} <span style={{ color: '#5046E5' }}>→</span></span>
+    <span style={{ color: '#767676', fontSize: 14 }}>{note}</span>
+  </a>
+);
+
+<div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', margin: '16px 0 32px' }}>
+  <LinkCard href="https://anastasiia-suhanek.github.io" title="Portfolio" note="Case studies with metrics" />
+  <LinkCard href="https://www.figma.com/design/d8WTz9z1dh04l7Nm8dcRvG/Anastasiia-Sukhanek-%E2%80%94-Design-System-Sample" title="Figma" note="The same components, variants and tokens" />
+  <LinkCard href="https://github.com/anastasiia-suhanek/design-system" title="GitHub" note="Source code, tokens and tests" />
+</div>
+
+<p style={{ color: '#767676', fontSize: 14 }}>Anastasiia Sukhanek, product designer · Prague</p>
