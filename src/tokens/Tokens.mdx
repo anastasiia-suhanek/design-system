@@ -1,31 +1,32 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import tokens from './tokens.json';
+import { T } from '../docs/i18n';
 
 <Meta title="Foundations/Tokens" />
 
 export const Swatch = ({ name, value, cssVar }) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0', borderBottom: '1px solid var(--border-subtle)' }}>
+  <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 12, padding: '8px 0', borderBottom: '1px solid var(--border-subtle)' }}>
     <div style={{ width: 40, height: 40, borderRadius: 0, background: `var(${cssVar})`, border: '1px solid var(--border-subtle)', flex: 'none' }} />
     <span style={{ minWidth: 240, fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12, lineHeight: '16px' }}>{name}</span>
     <span style={{ color: 'var(--text-secondary)' }}>{value}</span>
   </div>
 );
 
-# Tokens
+# <T en="Tokens" ru="Токены" />
 
-Two layers. **Components only use semantic tokens**; semantic tokens point at primitives
+<T en={<p>Two layers. <strong>Components only use semantic tokens</strong>; semantic tokens point at primitives</p>} ru={<p>Два слоя. <strong>Компоненты используют только семантические токены</strong>, а те ссылаются на примитивы</p>} />
 
-## Semantic
+## <T en="Semantic" ru="Семантические" />
 
 {Object.entries(tokens.semantic).map(([k, v]) => <Swatch key={k} name={k} value={'→ ' + v.replace(/[{}]/g, '')} cssVar={'--' + k.replace(/\//g, '-')} />)}
 
-## Colour primitives
+## <T en="Colour primitives" ru="Цветовые примитивы" />
 
 {Object.entries(tokens.primitives.color).map(([k, v]) => <Swatch key={k} name={'color/' + k} value={v} cssVar={'--color-' + k} />)}
 
-## Spacing and radius
+## <T en="Spacing and radius" ru="Отступы и радиусы" />
 
-Every padding, gap and radius sits on a 4 px grid
+<T en={<p>Every padding, gap and radius sits on a 4 px grid</p>} ru={<p>Все отступы и радиусы лежат на сетке 4 px</p>} />
 
 <div style={{ display: 'flex', gap: 16, alignItems: 'flex-end', flexWrap: 'wrap' }}>
   {Object.entries(tokens.primitives.spacing).map(([k, v]) => (

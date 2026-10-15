@@ -12,6 +12,8 @@ export interface FullscreenMessageProps {
   /** Shows the top bar with a back button */
   header?: boolean;
   onBack?: () => void;
+  /** Accessible name of the back button */
+  backLabel?: string;
   bullets?: string[];
   slot?: ReactNode;
   actions?: ButtonGroupProps;
@@ -21,14 +23,14 @@ export interface FullscreenMessageProps {
  * A result or a requirement the user must see before going on:
  * success, a blocking check, an empty state with an action
  */
-export function FullscreenMessage({ title, subtitle, illustration = 'money', header = true, onBack,
+export function FullscreenMessage({ title, subtitle, illustration = 'money', header = true, onBack, backLabel = 'Back',
   bullets, slot, actions }: FullscreenMessageProps) {
   const titleId = useId();
   return (
     <main className="ds-full" aria-labelledby={titleId}>
       {header ? (
         <div className="ds-full__header">
-          <button type="button" className="ds-full__back" onClick={onBack} aria-label="Back">
+          <button type="button" className="ds-full__back" onClick={onBack} aria-label={backLabel}>
             <Icon name="arrow-forward" />
           </button>
         </div>

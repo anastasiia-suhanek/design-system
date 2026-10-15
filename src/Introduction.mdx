@@ -1,22 +1,7 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { T } from './docs/i18n';
 
 <Meta title="Introduction" />
-
-# Design system sample
-
-Components I built in the design system of a fintech app for international money transfers – iOS, Android and web.
-**Anonymised under NDA:** the brand colour, names and copy are replaced; the structure, properties and tokens follow production
-
-Designed in Figma, then rebuilt here in React and TypeScript with Claude Code – the same names and states in both, so design and code speak one language
-
-## How it’s built
-
-- **Tokens in two layers.** Primitives hold raw values; components use only semantic tokens (`button/primary/bg`, `text/secondary`), so a brand or a theme changes in one place. `tokens.json` is the source of truth, `npm run tokens` generates the CSS variables
-- **Components** – Button, Bottom sheet, Full screen message, List item. Every prop maps to a component property in Figma
-- **Accessibility** is checked on every story with axe (the Accessibility tab): semantic buttons and dialogs, focus rings, labels for icon-only buttons, reduced motion
-- **Readable by AI agents** – the Storybook MCP addon exposes components and their docs to coding agents
-
-## Links
 
 export const LinkCard = ({ href, title, note }) => (
   <a href={href} style={{ display: 'flex', flexDirection: 'column', gap: 4, padding: 16, border: '1px solid #E1E1DE', color: '#0B0B0B', textDecoration: 'none', flex: '1 1 200px' }}>
@@ -25,10 +10,44 @@ export const LinkCard = ({ href, title, note }) => (
   </a>
 );
 
+# <T en="Design system sample" ru="Образец дизайн-системы" />
+
+<T
+  en={<>
+    <p>Components I built in the design system of a fintech app for international money transfers – iOS, Android and web. <strong>Anonymised under NDA:</strong> the brand colour, names and copy are replaced; the structure, properties and tokens follow production</p>
+    <p>Designed in Figma, then rebuilt here in React and TypeScript with Claude Code – the same names and states in both, so design and code speak one language. Switch the <strong>Language</strong> toolbar above to see every component in Russian</p>
+  </>}
+  ru={<>
+    <p>Компоненты, которые я собрала в дизайн-системе финтех-приложения для международных переводов – iOS, Android и веб. <strong>Обезличено из-за NDA:</strong> фирменный цвет, названия и тексты заменены; структура, свойства и токены – как в продакшене</p>
+    <p>Спроектировано в Figma, затем пересобрано здесь на React и TypeScript с Claude Code – одни и те же названия и состояния, чтобы дизайн и код говорили на одном языке. Переключатель <strong>Language</strong> в верхней панели показывает все компоненты на русском</p>
+  </>}
+/>
+
+## <T en="How it’s built" ru="Как устроено" />
+
+<T
+  en={<ul>
+    <li><strong>Tokens in two layers.</strong> Primitives hold raw values; components use only semantic tokens (<code>button/primary/bg</code>, <code>text/secondary</code>), so a brand or a theme changes in one place. <code>tokens.json</code> is the source of truth, <code>npm run tokens</code> generates the CSS variables</li>
+    <li><strong>Components</strong> – Button, Bottom sheet, Full screen message, List item. Every prop maps to a component property in Figma</li>
+    <li><strong>Accessibility</strong> is tested on every story with axe – a violation fails the build. The first run caught what Figma didn’t show: secondary button text at 3.98:1 contrast (now 5.3:1) and loading buttons losing their name</li>
+    <li><strong>Localisation</strong> – the same components in English and Russian, including labels screen readers hear</li>
+    <li><strong>Readable by AI agents</strong> – the Storybook MCP addon exposes components and their docs to coding agents</li>
+  </ul>}
+  ru={<ul>
+    <li><strong>Токены в два слоя.</strong> Примитивы хранят значения; компоненты используют только семантические токены (<code>button/primary/bg</code>, <code>text/secondary</code>), поэтому бренд или тема меняются в одном месте. <code>tokens.json</code> – источник правды, <code>npm run tokens</code> собирает CSS-переменные</li>
+    <li><strong>Компоненты</strong> – Button, Bottom sheet, Full screen message, List item. Каждое свойство соответствует свойству компонента в Figma</li>
+    <li><strong>Доступность</strong> проверяется на каждой истории через axe – нарушение роняет сборку. Первый же прогон нашёл то, чего не видно в Figma: контраст текста вторичной кнопки 3,98:1 (теперь 5,3:1) и потерю названия у кнопки при загрузке</li>
+    <li><strong>Локализация</strong> – те же компоненты на английском и русском, включая подписи для скринридеров</li>
+    <li><strong>Понятно ИИ-агентам</strong> – аддон Storybook MCP открывает компоненты и документацию агентам, которые пишут код</li>
+  </ul>}
+/>
+
+## <T en="Links" ru="Ссылки" />
+
 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', margin: '16px 0 40px' }}>
-  <LinkCard href="https://anastasiia-suhanek.github.io" title="Portfolio" note="Case studies with metrics" />
-  <LinkCard href="https://www.figma.com/design/d8WTz9z1dh04l7Nm8dcRvG/Anastasiia-Sukhanek-%E2%80%94-Design-System-Sample" title="Figma" note="The same components, variants and tokens" />
-  <LinkCard href="https://github.com/anastasiia-suhanek/design-system" title="GitHub" note="Source code, tokens and tests" />
+  <LinkCard href="https://anastasiia-suhanek.github.io" title={<T en="Portfolio" ru="Портфолио" />} note={<T en="Case studies with metrics" ru="Кейсы с метриками" />} />
+  <LinkCard href="https://www.figma.com/design/d8WTz9z1dh04l7Nm8dcRvG/Anastasiia-Sukhanek-%E2%80%94-Design-System-Sample" title="Figma" note={<T en="The same components, variants and tokens" ru="Те же компоненты, варианты и токены" />} />
+  <LinkCard href="https://github.com/anastasiia-suhanek/design-system" title="GitHub" note={<T en="Source code, tokens and tests" ru="Код, токены и тесты" />} />
 </div>
 
-<p style={{ color: '#767676', fontSize: 12, lineHeight: '16px' }}>Anastasiia Sukhanek, product designer · Prague</p>
+<p style={{ color: '#767676', fontSize: 12, lineHeight: '16px' }}><T en="Anastasiia Sukhanek, product designer · Prague" ru="Анастасия Суханек, продуктовый дизайнер · Прага" /></p>

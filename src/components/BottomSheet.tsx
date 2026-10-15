@@ -14,6 +14,8 @@ export interface BottomSheetProps {
   /** Shows the close button. Turn off when the user must choose an action */
   closable?: boolean;
   onClose?: () => void;
+  /** Accessible name of the close button – translate with the rest of the copy */
+  closeLabel?: string;
   /** Custom content under the text */
   slot?: ReactNode;
   actions?: ButtonGroupProps;
@@ -24,7 +26,7 @@ export interface BottomSheetProps {
  * a limit reached, an error with one next step, a reminder that can wait
  */
 export function BottomSheet({ type = 'message', title, subtitle, illustration = 'cat', closable = true,
-  onClose, slot, actions }: BottomSheetProps) {
+  onClose, closeLabel = 'Close', slot, actions }: BottomSheetProps) {
   const titleId = useId();
   const descId = useId();
   return (
@@ -32,7 +34,7 @@ export function BottomSheet({ type = 'message', title, subtitle, illustration = 
       className={`ds-sheet ds-sheet--${type}`}>
       {closable && (
         <div className="ds-sheet__close-row">
-          <button type="button" className="ds-sheet__close" onClick={onClose} aria-label="Close">
+          <button type="button" className="ds-sheet__close" onClick={onClose} aria-label={closeLabel}>
             <Icon name="close" />
           </button>
         </div>

@@ -1,16 +1,17 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import tokens from './tokens.json';
+import { T } from '../docs/i18n';
 
 <Meta title="Foundations/Typography" />
 
-# Typography
+# <T en="Typography" ru="Типографика" />
 
-Inter. Each style is a set of tokens – weight, size, line height, letter spacing – and a `.text-*` class
+<T en={<p>Inter. Each style is a set of tokens – weight, size, line height, letter spacing – and a <code>.text-*</code> class</p>} ru={<p>Inter. Каждый стиль – набор токенов: начертание, кегль, интерлиньяж, трекинг – и класс <code>.text-*</code></p>} />
 
 {Object.entries(tokens.typography).map(([k, s]) => (
-  <div key={k} style={{ display: 'flex', alignItems: 'baseline', gap: 24, padding: '16px 0', borderBottom: '1px solid var(--border-subtle)' }}>
+  <div key={k} style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', gap: 24, padding: '16px 0', borderBottom: '1px solid var(--border-subtle)' }}>
     <span style={{ minWidth: 120, fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12, lineHeight: '16px' }}>{k}</span>
     <span style={{ color: 'var(--text-secondary)', minWidth: 140 }}>{s.weight} · {s.size} / {s.lineHeight}</span>
-    <span className={'text-' + k.replace('/', '-')}>Send money in a few taps</span>
+    <span className={'text-' + k.replace('/', '-')}><T en="Send money in a few taps" ru="Переводите деньги в пару касаний" /></span>
   </div>
 ))}
