@@ -3,7 +3,7 @@ import { create } from 'storybook/theming/create';
 /** Storybook chrome in the portfolio's Swiss style. The components keep their own (product) colours */
 export default create({
   base: 'light',
-  brandTitle: 'Anastasiia Sukhanek · Design system',
+  brandTitle: '<span style="font-weight:700;font-size:16px;line-height:20px;letter-spacing:-0.02em;color:#0B0B0B">Anastasiia Sukhanek<br><span style="font-weight:400;font-size:14px;color:#767676;letter-spacing:0">Design system</span></span>',
   brandUrl: 'https://anastasiia-suhanek.github.io',
   brandTarget: '_self',
 
@@ -13,7 +13,7 @@ export default create({
   colorPrimary: '#5046E5',
   colorSecondary: '#5046E5',
 
-  appBg: '#F5F5F3',
+  appBg: '#FFFFFF',
   appContentBg: '#FFFFFF',
   appPreviewBg: '#FFFFFF',
   appBorderColor: '#E1E1DE',
