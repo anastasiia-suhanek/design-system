@@ -5,8 +5,8 @@ import tokens from './tokens.json';
 
 export const Swatch = ({ name, value, cssVar }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0', borderBottom: '1px solid var(--border-subtle)' }}>
-    <div style={{ width: 40, height: 40, borderRadius: 8, background: `var(${cssVar})`, border: '1px solid var(--border-subtle)', flex: 'none' }} />
-    <code style={{ minWidth: 240 }}>{name}</code>
+    <div style={{ width: 40, height: 40, borderRadius: 0, background: `var(${cssVar})`, border: '1px solid var(--border-subtle)', flex: 'none' }} />
+    <span style={{ minWidth: 240, fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12, lineHeight: '16px' }}>{name}</span>
     <span style={{ color: 'var(--text-secondary)' }}>{value}</span>
   </div>
 );

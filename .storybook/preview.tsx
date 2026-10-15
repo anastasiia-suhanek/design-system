@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react-vite';
 import '../src/index';
+import '@fontsource/inter/500.css'; // docs headings use 500, like the portfolio
 import theme from './theme';
 
 const preview: Preview = {

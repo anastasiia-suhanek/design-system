@@ -9,7 +9,7 @@ Inter. Each style is a set of tokens – weight, size, line height, letter spaci
 
 {Object.entries(tokens.typography).map(([k, s]) => (
   <div key={k} style={{ display: 'flex', alignItems: 'baseline', gap: 24, padding: '16px 0', borderBottom: '1px solid var(--border-subtle)' }}>
-    <code style={{ minWidth: 120 }}>{k}</code>
+    <span style={{ minWidth: 120, fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12, lineHeight: '16px' }}>{k}</span>
     <span style={{ color: 'var(--text-secondary)', minWidth: 140 }}>{s.weight} · {s.size} / {s.lineHeight}</span>
     <span className={'text-' + k.replace('/', '-')}>Send money in a few taps</span>
   </div>
