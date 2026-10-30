@@ -24,7 +24,7 @@ export const Success: Story = {};
 export const WithBullets: Story = {
   args: { title: 'Before you send', subtitle: 'Have these ready – it takes about 3 minutes', illustration: 'cat',
     bullets: ['Passport or ID card', 'Proof of address', 'A good light for the photo'], actions: { primary: 'Start' } },
-  parameters: { ru: { title: 'Перед переводом', subtitle: 'Подготовьте это – займёт около 3 минут', bullets: ['Паспорт или ID-карта', 'Подтверждение адреса', 'Хорошее освещение для фото'], actions: { primary: 'Начать', secondary: '' } } },
+  parameters: { ru: { title: 'Перед переводом', subtitle: 'Подготовьте заранее — проверка займёт около 3 минут', bullets: ['Паспорт или ID-карта', 'Подтверждение адреса', 'Хорошее освещение для фото'], actions: { primary: 'Начать', secondary: '' } } },
 };
 export const NoHeaderNoIllustration: Story = { args: { header: false, illustration: null, actions: { primary: 'Try again' } , title: 'Something went wrong', subtitle: 'We couldn’t check your documents. Try again in a few minutes' },
   parameters: { ru: { title: 'Что-то пошло не так', subtitle: 'Не получилось проверить документы. Попробуйте ещё раз через несколько минут', actions: { primary: 'Попробовать снова', secondary: '' } } } };
