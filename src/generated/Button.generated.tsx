@@ -8,7 +8,7 @@ export function GeneratedButton() {
 
 export function GeneratedButtonMatrix() {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 220px)', gap: 24 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }}>
       <Button variant="primary">Action button</Button>
       <Button variant="primary" pressed>Action button</Button>
       <Button variant="primary" disabled>Action button</Button>
