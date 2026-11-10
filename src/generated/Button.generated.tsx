@@ -1,14 +1,17 @@
+import type { ComponentProps } from 'react';
 import { Button } from '../index';
 
-export function GeneratedButton() {
+type Props = Partial<ComponentProps<typeof Button>>;
+
+export function GeneratedButton(props: Props) {
   return (
-    <Button variant="primary">Action button</Button>
+    <Button variant="primary" children="Action button" {...props} />
   );
 }
 
 export function GeneratedButtonMatrix() {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(14rem, 1fr))', gap: 24 }}>
       <Button variant="primary">Action button</Button>
       <Button variant="primary" pressed>Action button</Button>
       <Button variant="primary" disabled>Action button</Button>

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect } from 'storybook/test';
-import { GeneratedButton as Button } from './Button.generated';
+import { GeneratedButton as Button, GeneratedButtonMatrix } from './Button.generated';
 
 const meta = {
   title: 'Frame/Button',
@@ -24,6 +24,10 @@ export const TypeGhostStateDefault: Story = { args: { variant: 'ghost' } };
 export const TypeGhostStatePressed: Story = { args: { variant: 'ghost', pressed: true } };
 export const TypeGhostStateDisabled: Story = { args: { variant: 'ghost', disabled: true } };
 export const TypeGhostStateLoading: Story = { args: { variant: 'ghost', loading: true } };
+
+export const Matrix: Story = {
+  render: () => <GeneratedButtonMatrix />,
+};
 
 export const Contract: Story = {
   play: async ({ canvas }) => {

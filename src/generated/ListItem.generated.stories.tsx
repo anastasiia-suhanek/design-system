@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect } from 'storybook/test';
-import { GeneratedListItem as ListItem } from './ListItem.generated';
+import { GeneratedListItem as ListItem, GeneratedListItemMatrix } from './ListItem.generated';
 
 const meta = {
   title: 'Frame/List item',
@@ -17,6 +17,10 @@ export const DensityNormalAlignmentCenter: Story = {};
 export const DensityTightAlignmentCenter: Story = { args: { density: 'tight' } };
 export const DensityNormalAlignmentTop: Story = { args: { alignment: 'top' } };
 export const DensityTightAlignmentTop: Story = { args: { density: 'tight', alignment: 'top' } };
+
+export const Matrix: Story = {
+  render: () => <GeneratedListItemMatrix />,
+};
 
 export const Contract: Story = {
   play: async ({ canvas }) => {
